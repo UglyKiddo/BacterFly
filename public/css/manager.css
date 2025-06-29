@@ -1,0 +1,748 @@
+/* ===== GLOBAL STYLE ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 16px;
+}
+
+/* ===== TOP BAR ===== */
+.top-bar {
+    padding: 10px;
+    background-color: #000;
+    border-bottom: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF8C42;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+}
+
+.logo img {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.logo span strong {
+    color: #fff;
+}
+
+.division {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #fff;
+}
+
+/* ===== DASHBOARD UTAMA ===== */
+main {
+    flex: 1;
+    padding: 16px;
+}
+
+.reminder {
+    background-color: #800080;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* ===== PROFIL - TAMPILAN & EDIT ===== */
+.profile-container {
+    text-align: center;
+    margin-top: 40px;
+    width: 80%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #666;
+}
+
+
+.username {
+    font-family: Georgia, serif;
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.user-info {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.edit-container {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.edit-btn {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 14px;
+    background-color: #FF8C42;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.edit-btn:hover {
+    background-color: #FFA347;
+    transform: scale(1.05);
+}
+
+/* ===== FORM EDIT PROFIL ===== */
+.form-container {
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.form-container label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-size: 18px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    background-color: #222;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+.form-container input:focus {
+    outline: none;
+    border-color: #FF8C42;
+}
+
+.button-group .btn-cancel {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button-group .btn-cancel:hover {
+    background-color: #666;
+}
+
+.form-container button[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #FF8C42;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.form-container button:hover {
+    background-color: #FFA500;
+}
+
+.message {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #FF8C42;
+}
+
+/* ===== NAVIGASI BAWAH ===== */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    background: #000;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    border-top: 1px solid #555;
+}
+
+.bottom-nav a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    transition: transform 0.2s, opacity 0.2s, color 0.2s;
+}
+
+.bottom-nav img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 2px;
+    opacity: 0.7;
+}
+
+.bottom-nav a:hover img,
+.bottom-nav a.active img {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.bottom-nav a.active {
+    color: #FF8C42;
+}
+
+.bottom-nav a:hover {
+    color: #FF8C42;
+}
+
+.bottom-nav a span {
+    margin-top: 2px;
+}
+
+/*INSTRUKSI*/
+.mark-done-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.mark-done-btn:hover {
+    background-color: #218838;
+}
+
+/* ===== INSTRUKSI - DAFTAR & FORM ===== */
+
+.instructions-list {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+.instruction-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.instruction-item p {
+    margin: 5px 0;
+    flex-grow: 1;
+}
+
+.instruction-status {
+    margin-left: 10px;
+}
+
+
+.actions a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.actions .detail {
+    background-color: #1E90FF;
+}
+
+.actions .edit {
+    background-color: #FFA500;
+}
+
+.actions .done {
+    background-color: #32CD32;
+}
+
+.actions .done.completed {
+    background-color: #808080;
+    cursor: not-allowed;
+    text-decoration: line-through;
+}
+
+.actions .delete {
+    background-color: #FF4500;
+}
+
+.add-instruction {
+    display: none;
+    padding: 0 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+.submit {
+    background-color: #800080;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.add-button {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.add-button a {
+    font-size: 30px;
+    color: #FFA500;
+    text-decoration: none;
+}
+
+/* Tambahan untuk pesan status */
+.message.success {
+    background-color: #228B22;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+}
+
+.message.error {
+    background-color: #FF0000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: center;
+}
+
+/* ===== DETAIL INSTRUKSI ===== */
+
+.profile-container h2 {
+    font-size: 24px;
+    margin-top: 20px;
+    text-align: center;
+    color: #FF8C42;
+}
+
+.profile-container p {
+    font-size: 16px;
+    margin: 8px 0;
+    text-align: center;
+}
+
+.profile-container .user-info {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 16px;
+    text-align: justify;
+    color: #ddd;
+}
+
+.btn-cancel {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-cancel:hover {
+    background-color: #777;
+}
+
+/* ===== FORM EDIT INSTRUKSI ===== */
+
+.profile-container form {
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.profile-container label {
+    display: block;
+    margin: 12px 0 5px;
+    font-size: 16px;
+}
+
+.profile-container input[type="text"],
+.profile-container select,
+.profile-container textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    background-color: #222;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+.profile-container textarea {
+    resize: vertical;
+}
+
+.profile-container button[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #32CD32;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.profile-container button[type="submit"]:hover {
+    background-color: #3ee33e;
+}
+
+.btn-cancel {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #777;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.btn-cancel:hover {
+    background-color: #999;
+}
+
+
+/* ===== PENGAWASAN - PRODUKSI PER KATEGORI ===== */
+.report-section {
+    flex: 1;
+    padding: 80px 16px 70px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #FF8C42 #222;
+}
+.report-section::-webkit-scrollbar {
+    width: 10px;
+}
+.report-section::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 5px;
+}
+.report-section::-webkit-scrollbar-thumb {
+    background: #FF8C42;
+    border-radius: 5px;
+}
+.report-section::-webkit-scrollbar-thumb:hover {
+    background: #FFA500;
+}
+
+.bacteria-item {
+    background-color: #FF8C42;
+    color: #000;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: opacity 0.5s ease;
+}
+.bacteria-item img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.bacteria-info {
+    flex-grow: 1;
+}
+.bacteria-info p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 10px;         /* jarak ke bawah */
+    margin-top: -25px;           /* jika ingin naik sedikit */
+    padding: 8px 16px;
+    background-color: #FF8C42;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;       /* hilangkan garis bawah */
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #FFA347;
+    transform: scale(1.05);
+}
+
+.back-btn:active {
+    background-color: #FF8C42;
+    transform: scale(0.98);
+}
+
+@media (max-width: 600px) {
+    .bacteria-item img {
+        height: 80px;
+        width: 80px;
+    }
+    .bacteria-info p {
+        font-size: 12px;
+    }
+    .report-section {
+        padding: 70px 16px 60px;
+    }
+}
+
+.category-card {
+    background-color: #1e1e1e;
+    color: white;
+    padding: 30px 20px;
+    border-radius: 15px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 20px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, border 0.3s;
+    border: 2px solid transparent;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+    border: 2px solid #FF8C42;
+    color: #FF8C42;
+}
+
+.category-card.active {
+    border: 2px solid #FF8C42;
+    color: #FF8C42;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #1e1e1e;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 130px;
+    height: 130px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 140, 66, 0.4);
+    transition: transform 0.3s, border 0.3s, color 0.3s;
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none; /* hilangkan garis bawah */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    border: 2px solid #FF8C42;
+    color: #FF8C42;
+    text-decoration: none;
+}
+
+.card img {
+    margin-bottom: 10px;
+    width: 60px;
+    height: 60px;
+}
+
+/* Hilangkan underline juga jika .card adalah <a> */
+.card span {
+    text-decoration: none;
+}
+
+/* Opsional: jika .card dibungkus <a>, hilangkan underline-nya juga */
+.card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/*indekPengawasan*/
+.division-buttons {
+    display: flex;
+    flex-direction: column; /* ubah dari row ke column */
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.division-card {
+    background-color: #1e1e1e;
+    color: #fff;
+    width: 160px;
+    height: 160px;
+    border-radius: 15px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(255, 140, 66, 0.3);
+    transition: transform 0.3s, border 0.3s, color 0.3s;
+    border: 2px solid transparent;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.division-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+.division-card:hover {
+    border: 2px solid #FF8C42;
+    color: #FF8C42;
+    transform: scale(1.05);
+}
+
+
+
+
+
+
+/* ===== TOMBOL LOGOUT ===== */
+.logout-btn {
+    background-color: #FF4500;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.logout-btn:hover {
+    background-color: #FF6347;
+    transform: scale(1.05);
+}
+
+.logout-btn:active {
+    background-color: #E03A2E;
+    transform: scale(0.98);
+}
+
+/* ===== RESPONSIF ===== */
+@media (max-width: 600px) {
+    .top-bar {
+        padding: 8px;
+    }
+
+    .logo {
+        font-size: 12px;
+    }
+
+    .division {
+        font-size: 12px;
+    }
+
+    .logout-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+        top: 12px;
+        right: 12px;
+    }
+
+    .profile-container {
+        width: 90%;
+    }
+
+    .bottom-nav img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .bottom-nav a {
+        font-size: 10px;
+    }
+
+    .nav-bar {
+        width: 90%;
+        max-width: 250px;
+    }
+}

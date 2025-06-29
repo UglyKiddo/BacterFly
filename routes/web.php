@@ -9,13 +9,20 @@ use App\Http\Controllers\{
     ProfileController,
     InokulasiController,
     intruksiController,
-    PengawasanController,
     ProduksiController,
     LabController,
     LabBakteriController,
-    BidanController,
     ProsesController,
     BakteriController
+};
+
+use App\Http\Controllers\Manager\{
+ManagerController,
+MProfileController,
+MInstructionController,
+PengawasanController,
+PengawasanProduksiController,
+PengawasanInokulasiController
 };
 
 // ========== AUTH ==========
@@ -69,19 +76,38 @@ Route::prefix('produksi')->middleware('auth')->name('produksi.')->group(function
     Route::get('/peternakan', [ProduksiController::class, 'peternakan'])->name('peternakan');
 });
 
-// ========== MANAGER ==========
-Route::get('/manager-dashboard', fn () => view('man_dashboard'))
-    ->middleware('auth')->name('manager.dashboard');
+// Manager
+Route::prefix('manager')->middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [ManagerController::class, 'dashboard'])->name('manager.dashboard');
+    Route::get('/profil', [MProfileController::class, 'show'])->name('manager.profil');
+    Route::get('/profil/edit', [MProfileController::class, 'edit'])->name('manager.profil.edit');
+    Route::post('/profil/update', [MProfileController::class, 'update'])->name('manager.profil.update');
 
-// ========== intruksi, INOKULASI, PENGAWASAN ==========
-Route::middleware('auth')->group(function () {
-    Route::get('/inokulasi', [InokulasiController::class, 'index'])->name('inokulasi');
-    Route::get('/intruksi', [intruksiController::class, 'index'])->name('intruksi');
-    Route::get('/pengawasan', [PengawasanController::class, 'index'])->name('pengawasan');
+    Route::get('/instruksi', [MInstructionController::class, 'index'])->name('manager.instruksi');
+    Route::post('/instruksi', [MInstructionController::class, 'store'])->name('manager.instruksi.store');
+    Route::get('/instruksi/detail/{id}', [MInstructionController::class, 'show'])->name('manager.instruksi.detail');
+    Route::get('/instruksi/edit/{id}', [MInstructionController::class, 'edit'])->name('manager.instruksi.edit');
+    Route::post('/instruksi/update/{id}', [MInstructionController::class, 'update'])->name('manager.instruksi.update');
+    Route::get('/instruksi/done/{id}', [MInstructionController::class, 'markAsDone'])->name('manager.instruksi.done');
+    Route::get('/instruksi/delete/{id}', [MInstructionController::class, 'destroy'])->name('manager.instruksi.delete');
+
+    Route::get('/pengawasan', [PengawasanController::class, 'index'])->name('manager.pengawasan');
+
+    Route::prefix('pengawasan/produksi')->name('manager.pengawasan.produksi.')->group(function () {
+    Route::get('/', [PengawasanProduksiController::class, 'index'])->name('index');
+    Route::get('/{kategori}', [PengawasanProduksiController::class, 'showByKategori'])->name('kategori');
+    });
+    
+    Route::prefix('pengawasan/inokulasi')->name('manager.pengawasan.inokulasi.')->middleware(['auth'])->group(function () {
+    Route::get('/', [PengawasanInokulasiController::class, 'index'])->name('index');
+    Route::get('/{kategori}', [PengawasanInokulasiController::class, 'showByKategori'])->name('kategori');
+    });
+
+   
+
+
 });
 
-// ========== BIDAN ==========
-Route::get('/bidan/pilih', [BidanController::class, 'pilih'])->middleware('auth')->name('bidan.pilih');
 
 // ========== PROSES ==========
 Route::prefix('proses')->middleware('auth')->name('proses.')->group(function () {
