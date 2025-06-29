@@ -23,6 +23,14 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
+Route::middleware('auth')->group(function () {
+    Route::get('/lab-dashboard', [DashboardController::class, 'lab'])->name('lab.dashboard');
+    Route::get('/produksi-dashboard', [DashboardController::class, 'produksi'])->name('produksi.dashboard');
+    Route::get('/manager-dashboard', [DashboardController::class, 'manager'])->name('manager.dashboard');
+});
+
+
+
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/send-code', [AuthController::class, 'sendVerificationCode'])->name('send.code');
@@ -49,9 +57,12 @@ Route::prefix('lab')->middleware('auth')->name('lab.')->group(function () {
 
     Route::get('/profil', [LabController::class, 'profil'])->name('profil');
 
+
     // Tambah Bakteri
     Route::get('/tambah-bakteri', [LabController::class, 'showForm'])->name('bakteri.form');
-    Route::post('/tambah-bakteri', [LabController::class, 'store'])->name('bakteri.store');
+    Route::prefix('lab')->middleware('auth')->name('lab.')->group(function () {
+        Route::post('/proses-tambah-bakteri', [LabController::class, 'storeInokulasi'])->name('inokulasi.store');
+    });
 
     // Kategori Bakteri
     Route::prefix('bakteri')->name('bakteri.')->group(function () {
