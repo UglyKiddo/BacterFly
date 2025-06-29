@@ -16,7 +16,7 @@
   <h2>Tambah Data Bakteri - {{ $kategori }}</h2>
   <button onclick="history.back()" class="back-btn">Kembali</button>
 
-  <form method="POST" action="{{ url('lab/proses-tambah-bakteri') }}" enctype="multipart/form-data">
+  <form method="POST" action="{{ route('lab.inokulasi.store') }}" enctype="multipart/form-data">
     @csrf
     <input type="hidden" name="kategori" value="{{ $kategori }}">
 

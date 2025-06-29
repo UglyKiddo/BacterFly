@@ -197,7 +197,7 @@
         </header>
 
         <div class="report-section">
-            <button onclick="location.href='{{ url('lab-bakteri') }}'" class="back-btn">Kembali</button>
+            <button onclick="location.href='{{ route('lab.bakteri.index') }}'" class="back-btn">Kembali</button>
             <h2>Inokulasi Bidang Pertanian</h2>
             @if ($results->isEmpty())
                 <p>Tidak ada data inokulasi.</p>
@@ -244,21 +244,22 @@
         </div>
 
         <div class="bottom-nav">
-            <a href="{{ url('lab-dashboard') }}">
+            <a href="{{ route('lab.dashboard') }}">
                 <span>🏠</span>
                 <span>Home</span>
             </a>
-            <a href="{{ url('lab-bakteri') }}">
+            <a href="{{ route('lab.bakteri.index') }}">
                 <span>🕒</span>
                 <span>Data</span>
             </a>
-            <a href="{{ url('lab-intruksi') }}">
+            <a href="{{ route('lab.intruksi') }}">
                 <span>📋</span>
                 <span>Instruksi</span>
             </a>
-            <a href="{{ url('lab-profil') }}">
+            <a href="{{ route('lab.profil') }}">
                 <span>👤</span>
                 <span>Profil</span>
+            </a>
             </a>
         </div>
     </div>

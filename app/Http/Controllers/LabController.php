@@ -126,4 +126,22 @@ class LabController extends Controller
             return redirect()->back()->with('error', 'Gagal menyimpan data: ' . $e->getMessage());
         }
     }
+    public function storeInokulasi(StoreInokulasiRequest $request)
+    {
+        $data = $request->validated();
+
+        $data['Laboratorium_id'] = Auth::id();
+        $data['Manager_id'] = 9; // Atur sesuai struktur peran
+
+        if ($request->hasFile('foto_bakteri')) {
+            $file = $request->file('foto_bakteri');
+            $filename = 'bakteri_' . uniqid() . '.' . $file->getClientOriginalExtension();
+            $file->storeAs('public/foto_bakteriInokulasi', $filename);
+            $data['foto_bakteri'] = $filename;
+        }
+
+        DataInokulasi::create($data);
+
+        return redirect()->route('lab.bakteri.' . strtolower($data['kategori']))->with('success', 'Data berhasil disimpan.');
+    }
 }

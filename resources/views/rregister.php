@@ -2,8 +2,8 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <title>Registrasi - BacterFly</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,51 +23,43 @@
         .form-group {
             margin-bottom: 15px;
         }
-        .form-group input,
-        .form-group select {
+        input, select, button {
             width: 100%;
             padding: 10px;
-            border: 1px solid #ccc;
             border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
             background-color: #333;
             color: #fff;
-            box-sizing: border-box;
-        }
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-        .checkbox-group input[type="checkbox"] {
-            width: auto;
-            margin: 0;
         }
         .code-group {
             display: flex;
             gap: 10px;
         }
         .code-group input {
-            flex: 1;
+            flex: 2;
         }
         .code-group button {
-            padding: 10px 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #333;
-            color: #fff;
+            flex: 1;
+            padding: 10px;
+            background-color: #444;
             cursor: pointer;
         }
         .signup-btn {
-            width: 100%;
-            padding: 10px;
             background-color: #ff6200;
             border: none;
-            border-radius: 5px;
-            color: #fff;
             font-size: 16px;
             cursor: pointer;
+        }
+        .message {
+            color: #ff6200;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .checkbox-group {
+            display: flex;
+            gap: 10px;
+            font-size: 14px;
         }
         .links {
             margin-top: 10px;
@@ -78,27 +70,21 @@
             color: #ff6200;
             text-decoration: none;
         }
-        .message {
-            text-align: center;
-            margin-bottom: 15px;
-            color: #ff6200;
-        }
     </style>
 </head>
 <body>
 <div class="container">
-
-    @if (session('pesan'))
+    @if(session('pesan'))
         <div class="message">{{ session('pesan') }}</div>
     @endif
 
     <p style="text-align: center;">Only email registration is supported in your office</p>
 
-    <form method="POST" action="{{ route('register') }}" id="formReg">
+    <!-- FORM SEND CODE -->
+    <form method="POST" action="{{ url('rregister.php') }}">
         @csrf
-
         <div class="form-group">
-            <input type="email" name="email" id="emailInput" placeholder="Email Address" value="{{ old('email') }}" required>
+            <input type="email" name="email" placeholder="Email Address" value="{{ old('email') ?? session('email') }}" required>
         </div>
 
         <div class="form-group">
@@ -109,28 +95,29 @@
             <input type="password" name="confirm_password" placeholder="Confirm Password" required>
         </div>
 
-        <!-- Input kode dan tombol kirim dalam satu baris -->
+        <!-- VERIFIKASI -->
         <div class="form-group code-group">
-            <input type="text" name="code" placeholder="Verification Code" id="codeInput">
+            <input type="text" name="code" placeholder="Verification Code">
             <button type="submit" name="send_code">Send Code</button>
         </div>
 
+        <!-- DIVISI -->
         <div class="form-group">
-            <label for="division">Pilih Divisi:</label>
-            <select name="division" id="division" required>
+            <select name="division" required>
                 <option value="">Pilih Divisi</option>
-                <option value="Laboratorium">Laboratorium</option>
-                <option value="Produksi">Produksi</option>
-                <option value="Manager">Manager</option>
+                <option value="Laboratorium" {{ old('division') == 'Laboratorium' ? 'selected' : '' }}>Laboratorium</option>
+                <option value="Produksi" {{ old('division') == 'Produksi' ? 'selected' : '' }}>Produksi</option>
+                <option value="Manager" {{ old('division') == 'Manager' ? 'selected' : '' }}>Manager</option>
             </select>
         </div>
 
+        <!-- S&K -->
         <div class="form-group checkbox-group">
             <input type="checkbox" id="terms" required>
-            <label for="terms">I confirm that I have read, consent and agree to Bacterfly's Terms of Use and Privacy Policy.</label>
+            <label for="terms">I confirm that I have read, consent and agree to BacterFly's Terms of Use and Privacy Policy.</label>
         </div>
 
-        <button type="submit" name="register" class="signup-btn">REGISTER</button>
+        <button type="submit" class="signup-btn" name="signup">REGISTER</button>
 
         <div class="links">
             <a href="mailto:bacterfly@gmail.com?subject=Kendala%20Registrasi">Call Us</a>
@@ -138,18 +125,5 @@
         </div>
     </form>
 </div>
-
-<script>
-    // Tangani validasi kode hanya saat klik REGISTER
-    document.getElementById('formReg').addEventListener('submit', function (e) {
-        const code = document.getElementById('codeInput').value;
-        const isRegister = e.submitter?.name === 'register';
-
-        if (isRegister && code.trim() === '') {
-            e.preventDefault();
-            alert('Silakan masukkan kode verifikasi terlebih dahulu.');
-        }
-    });
-</script>
 </body>
 </html>
