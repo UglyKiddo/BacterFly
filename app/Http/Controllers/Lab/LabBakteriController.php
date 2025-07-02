@@ -51,7 +51,7 @@ class LabBakteriController extends Controller
         if ($request->hasFile('foto_bakteri')) {
             $file = $request->file('foto_bakteri');
             $fileName = 'bakteri_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('foto_bakteriLab'), $fileName);
+            $file->move(public_path('asset/foto_bakteriLab'), $fileName);
         }
 
         Datainokulasi::create([
@@ -95,13 +95,13 @@ class LabBakteriController extends Controller
         $fileName = $data->foto_bakteri;
 
         if ($request->hasFile('foto_bakteri')) {
-            if ($fileName && file_exists(public_path('foto_bakteriLab/' . $fileName))) {
-                unlink(public_path('foto_bakteriLab/' . $fileName));
+            if ($fileName && file_exists(public_path('asset/foto_bakteriLab/' . $fileName))) {
+                unlink(public_path('asset/foto_bakteriLab/' . $fileName));
             }
 
             $file = $request->file('foto_bakteri');
             $fileName = 'bakteri_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('foto_bakteriLab'), $fileName);
+            $file->move(public_path('asset/foto_bakteriLab'), $fileName);
         }
 
         $data->update([
@@ -122,8 +122,8 @@ class LabBakteriController extends Controller
     {
         $data = Datainokulasi::findOrFail($id);
 
-        if ($data->foto_bakteri && file_exists(public_path('foto_bakteriLab/' . $data->foto_bakteri))) {
-            unlink(public_path('foto_bakteriLab/' . $data->foto_bakteri));
+        if ($data->foto_bakteri && file_exists(public_path('asset/foto_bakteriLab/' . $data->foto_bakteri))) {
+            unlink(public_path('asset/foto_bakteriLab/' . $data->foto_bakteri));
         }
 
         $kategori = $data->kategori;

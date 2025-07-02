@@ -14,7 +14,7 @@
         </div>
     </div>
     <main class="edit-form">
-        <form method="POST" action="{{ route('lab.bakteri.store') }}" enctype="multipart/form-data" class="edit-form">
+        <form method="POST" action="{{ route('lab.bakteri.store', ['kategori' => $kategori]) }}" enctype="multipart/form-data" class="edit-form">
             @csrf
             <input type="hidden" name="kategori" value="{{ $kategori }}">
 

@@ -32,7 +32,7 @@
                 <input type="text" name="nama" id="nama" value="{{ old('nama', $user->nama) }}" required>
 
                 <label for="division">Divisi</label>
-                <input type="text" name="division" id="division" value="{{ old('division', $user->division) }}">
+                <input type="text" name="division" id="division" value="{{ old('division', $user->division) }}"readonly>
 
                 <label for="foto">Foto Profil</label>
                 <input type="file" name="foto" accept="image/*">

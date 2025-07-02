@@ -52,7 +52,7 @@ class ProBakteriController extends Controller
         if ($request->hasFile('foto_bakteri')) {
             $file = $request->file('foto_bakteri');
             $fileName = 'bakteri_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('foto_bakteriProduksi'), $fileName);
+            $file->move(public_path('asset/foto_bakteriProduksi'), $fileName);
         }
 
         Dataproduksi::create([
@@ -99,13 +99,13 @@ class ProBakteriController extends Controller
 
         if ($request->hasFile('foto_bakteri')) {
             // Hapus file lama jika ada
-            if ($fileName && file_exists(public_path('foto_bakteriProduksi/' . $fileName))) {
-                unlink(public_path('foto_bakteriProduksi/' . $fileName));
+            if ($fileName && file_exists(public_path('asset/foto_bakteriProduksi/' . $fileName))) {
+                unlink(public_path('asset/foto_bakteriProduksi/' . $fileName));
             }
 
             $file = $request->file('foto_bakteri');
             $fileName = 'bakteri_' . uniqid() . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('foto_bakteriProduksi'), $fileName);
+            $file->move(public_path('asset/foto_bakteriProduksi'), $fileName);
         }
 
         $data->update([
@@ -127,8 +127,8 @@ class ProBakteriController extends Controller
     {
         $data = Dataproduksi::findOrFail($id);
 
-        if ($data->foto_bakteri && file_exists(public_path('foto_bakteriProduksi/' . $data->foto_bakteri))) {
-            unlink(public_path('foto_bakteriProduksi/' . $data->foto_bakteri));
+        if ($data->foto_bakteri && file_exists(public_path('asset/foto_bakteriProduksi/' . $data->foto_bakteri))) {
+            unlink(public_path('asset/foto_bakteriProduksi/' . $data->foto_bakteri));
         }
 
         $kategori = $data->kategori;

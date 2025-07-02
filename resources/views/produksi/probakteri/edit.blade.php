@@ -57,7 +57,7 @@
 
     @if ($bakteri->foto_bakteri)
         <p style="margin-top: 10px;">Foto saat ini:</p>
-        <img src="{{ asset('foto_bakteriProduksi/' . $bakteri->foto_bakteri) }}" alt="Foto Bakteri" class="preview">
+        <img src="{{ asset('asset/foto_bakteriProduksi/' . $bakteri->foto_bakteri) }}" alt="Foto Bakteri" class="preview">
     @endif
 
     <div style="margin-top: 20px;">

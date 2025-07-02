@@ -28,7 +28,7 @@
             @foreach ($data as $item)
                 <div class="bacteria-item" id="item-{{ $item->p_id }}">
                     @if ($item->foto_bakteri)
-                        <img src="{{ asset('foto_bakteriProduksi/' . $item->foto_bakteri) }}" alt="Foto Bakteri">
+                        <img src="{{ asset('asset/foto_bakteriProduksi/' . $item->foto_bakteri) }}" alt="Foto Bakteri">
                     @endif
 
                     <div class="bacteria-info">

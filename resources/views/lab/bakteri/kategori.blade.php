@@ -30,7 +30,7 @@
             @foreach ($data as $item)
                 <div class="bacteria-item" id="item-{{ $item->inokulasi_id }}">
                     @if ($item->foto_bakteri)
-                        <img src="{{ asset('foto_bakteriLab/' . $item->foto_bakteri) }}" alt="Foto Bakteri">
+                        <img src="{{ asset('asset/foto_bakteriLab/' . $item->foto_bakteri) }}" alt="Foto Bakteri">
                     @endif
 
                     <div class="bacteria-info">
