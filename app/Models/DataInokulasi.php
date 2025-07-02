@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DataInokulasi extends Model
+class datainokulasi extends Model
 {
-    protected $table = 'DataInokulasi';
+    protected $table = 'datainokulasi';
+    protected $primaryKey = 'inokulasi_id';
+    public $timestamps = true; // Nonaktifkan timestamps karena kolomnya tidak ada
 
     protected $fillable = [
         'Laboratorium_id',

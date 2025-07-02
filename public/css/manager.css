@@ -65,6 +65,11 @@ main {
 }
 
 /* ===== PROFIL - TAMPILAN & EDIT ===== */
+.nav-bar{
+     margin-top: 5px;
+    font-size: 14px;
+    color: #fff;
+}
 .profile-container {
     text-align: center;
     margin-top: 40px;
@@ -186,6 +191,8 @@ main {
     color: #FF8C42;
 }
 
+
+
 /* ===== NAVIGASI BAWAH ===== */
 .bottom-nav {
     display: flex;
@@ -254,6 +261,9 @@ main {
     margin-bottom: 20px;
     margin-top: 20px;
     padding: 0 10px;
+}
+.page-title{
+    text-align:center; margin-top: 20px;
 }
 
 .instruction-item {

@@ -1,0 +1,800 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 16px;
+}
+
+/* ===== TOP BAR ===== */
+.top-bar {
+    padding: 10px;
+    background-color: #000;
+    border-bottom: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF8C42;
+    font-size: 14px;
+    font-family: 'Courier New', monospace;
+}
+
+.logo img {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.logo span strong {
+    color: #fff;
+}
+
+.division {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #fff;
+}
+
+/* ===== DASHBOARD UTAMA ===== */
+main {
+    flex: 1;
+    padding: 16px;
+}
+
+.reminder {
+    background-color: #800080;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* ===== PROFIL - TAMPILAN & EDIT ===== */
+
+.nav-bar {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #fff;
+}
+.profile-container {
+    text-align: center;
+    margin-top: 40px;
+    width: 80%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #666;
+}
+
+
+.username {
+    font-family: Georgia, serif;
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.user-info {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.edit-container {
+    margin-top: 8px;
+    text-align: center;
+}
+
+.edit-btn {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 14px;
+    background-color: #FF8C42;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.edit-btn:hover {
+    background-color: #FFA347;
+    transform: scale(1.05);
+}
+
+/* ===== FORM EDIT PROFIL ===== */
+.form-container {
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.form-container label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px;
+    font-size: 18px;
+}
+
+.form-container input[type="text"],
+.form-container input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    background-color: #222;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 5px;
+}
+
+.form-container input:focus {
+    outline: none;
+    border-color: #FF8C42;
+}
+
+.button-group .btn-cancel {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button-group .btn-cancel:hover {
+    background-color: #666;
+}
+
+.form-container button[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #FF8C42;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.form-container button:hover {
+    background-color: #FFA500;
+}
+
+.message {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #FF8C42;
+}
+
+/*INSTRUKSI*/
+
+
+.instructions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.instruction-item {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.instruction-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.instruction-content {
+    color: #cccccc;
+    margin-bottom: 10px;
+}
+
+.instruction-details {
+    font-size: 14px;
+    color: #aaaaaa;
+    margin-bottom: 10px;
+}
+
+.instruction-status {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #00ff00;
+    background-color: #003300;
+}
+
+.instruction-status:not(.done) {
+    color: #ffcc00;
+    background-color: #332900;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.actions a {
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+}
+
+.actions .detail {
+    background-color: #ffae00;
+}
+
+.actions .done {
+    background-color: #888888;
+}
+
+.actions .done.completed {
+    pointer-events: none;
+    background-color: #333333;
+    color: #cccccc;
+}
+
+.actions .hapus {
+    background-color: #ff3c00;
+}
+
+
+
+/* Tombol di halaman detail instruksi */
+.mark-done-btn,
+.back-btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.mark-done-btn {
+    background-color: #32CD32;
+}
+
+.mark-done-btn.completed {
+    background-color: #808080;
+    cursor: not-allowed;
+}
+
+.back-btn {
+    background-color: #FF8C42;
+}
+
+.back-btn:hover {
+    background-color: #FFA500;
+}
+
+/* Detail view container spacing */
+.detail-instruction {
+    padding: 16px;
+    margin-top: -20px;
+}
+
+/* Detail instruksi kontainer item */
+.detail-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Judul instruksi */
+.instruction-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+/* Isi instruksi */
+.instruction-content {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* Detail metadata */
+.instruction-details {
+    font-size: 12px;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+/* Status instruksi */
+.instruction-status {
+    font-size: 14px;
+    margin-left: 0px;
+    margin-top: 5px;
+    font-weight: bold;
+    color: #FFA500;
+}
+
+/* Jika status selesai */
+.instruction-status.done {
+    color: #32CD32;
+}
+
+/* Tombol dalam section detail */
+.actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+
+/*PILIH BAKTERI*/
+/* ===== KATEGORI PILIHAN (Peternakan, Perikanan, Pertanian) ===== */
+.category-card {
+    background-color: #1e1e1e;
+    color: white;
+    padding: 30px 20px;
+    border-radius: 15px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 20px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, border 0.3s;
+    border: 2px solid transparent;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+    border: 2px solid #FF8C42;
+    color: #FF8C42;
+}
+
+.category-card.active {
+    border: 2px solid #FF8C42;
+    color: #FF8C42;
+}
+
+.grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #1e1e1e;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 130px;
+    height: 130px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 140, 66, 0.4);
+    transition: transform 0.3s, border 0.3s, color 0.3s;
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none; /* hilangkan garis bawah */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    border: 2px solid #FF8C42;
+    color: #FF8C42;
+    text-decoration: none;
+}
+
+.card img {
+    margin-bottom: 10px;
+    width: 60px;
+    height: 60px;
+}
+
+/* Hilangkan underline juga jika .card adalah <a> */
+.card span {
+    text-decoration: none;
+}
+
+/* Opsional: jika .card dibungkus <a>, hilangkan underline-nya juga */
+.card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+
+/*BAKTERI*/
+ .report-section {
+            margin-top: -55px;
+            padding: 80px 16px 70px;
+            
+        }
+
+        .bacteria-item {
+            background-color: #FF8C42;
+            color: #000;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .bacteria-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .bacteria-info {
+            flex-grow: 1;
+        }
+
+        .bacteria-info p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+        .action-buttons {
+            margin-top: 10px;
+        }
+
+        .action-buttons a,
+        .action-buttons button {
+           display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px; /* Jarak antara ikon dan teks */
+            padding: 10px 20px;
+            background: #FFA347;
+            color: black;
+            font-weight: bold;
+            font-size: 16px;
+            border: 1px solid black;
+            border-radius: 10px;
+            text-decoration: none;
+            min-height: 40px;
+            max-height: 100%;
+            min-width: 100px;
+            max-width: 100%;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .message {
+            text-align: center;
+            margin: 10px 0;
+            color: #FFA347;
+        }
+        .back-btn
+        .reminder {
+            background: #800080;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+.kback-btn {
+    background-color: #FFA347;
+    color: black;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: -20px; /* Ubah dari nilai besar jadi kecil */
+    margin-left: 0px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.kback-btn:hover {
+    background-color: #FFB873;
+    transform: scale(1.05);
+}
+
+.kback-btn:active {
+    background-color: #FF8C42;
+    transform: scale(0.98);
+}
+
+
+
+/*EDIT BAKTERI*/
+body.edit-bakteri-page {
+    background: #000;
+    color: #FFA347;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 5px;
+     
+}
+
+.edit-form {
+    margin-top: 15px;
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.edit-form input,
+.edit-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: #222;
+    border: 1px solid #FFA347;
+    color: white;
+    border-radius: 5px;
+}
+
+.edit-form button {
+    background: #FFA347;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+   display: inline-flex;
+    box-sizing: border-box;
+}
+
+.edit-form button:hover {
+    background-color: #FFB347;
+}
+
+.edit-form .btn-cancel {
+    display: inline-block;
+    background-color: #444;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    box-sizing: border-box; 
+}
+
+.edit-form .btn-cancel:hover {
+    background-color: #666;
+}
+
+.edit-form .preview {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.edit-form .button-group {
+    margin-top: 20px;
+}
+
+/*Tamabah Bakteri*/
+/* Halaman tambah dan edit bakteri */
+
+.tambah-bakteri-page,
+.edit-bakteri-page {
+    background: #000;
+    color: #FFA347;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 5px;
+}
+
+
+/* ===== NAVIGASI BAWAH ===== */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    background: #000;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    border-top: 1px solid #555;
+}
+
+.bottom-nav a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    transition: transform 0.2s, opacity 0.2s, color 0.2s;
+}
+
+.bottom-nav img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 2px;
+    opacity: 0.7;
+}
+
+.bottom-nav a:hover img,
+.bottom-nav a.active img {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.bottom-nav a.active {
+    color: #FF8C42;
+}
+
+.bottom-nav a:hover {
+    color: #FF8C42;
+}
+
+.bottom-nav a span {
+    margin-top: 2px;
+}
+
+/* === TAMBAH/EDIT FORM BAKTERI === */
+form.bakteri-form {
+    background: #111;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+form.bakteri-form input,
+form.bakteri-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: #222;
+    border: 1px solid #FFA347;
+    color: white;
+    border-radius: 5px;
+}
+
+form.bakteri-form input[type="file"] {
+    padding: 5px;
+}
+
+form.bakteri-form button {
+    background: #FFA347;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+form.bakteri-form .btn-cancel {
+    background: #444;
+    color: #fff;
+    margin-right: 10px;
+}
+
+form.bakteri-form .btn-cancel:hover {
+    background: #666;
+}
+
+form.bakteri-form button:hover {
+    background: #FFB873;
+}
+
+/* ===== TOMBOL LOGOUT ===== */
+.logout-btn {
+    background-color: #FF4500;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+.logout-btn:hover {
+    background-color: #FF6347;
+    transform: scale(1.05);
+}
+
+.logout-btn:active {
+    background-color: #E03A2E;
+    transform: scale(0.98);
+}
+
+/* ===== RESPONSIF ===== */
+@media (max-width: 600px) {
+    .top-bar {
+        padding: 8px;
+    }
+
+    .logo {
+        font-size: 12px;
+    }
+
+    .division {
+        font-size: 12px;
+    }
+
+    .logout-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+        top: 12px;
+        right: 12px;
+    }
+
+    .profile-container {
+        width: 90%;
+    }
+
+    .bottom-nav img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .bottom-nav a {
+        font-size: 10px;
+    }
+
+    .nav-bar {
+        width: 90%;
+        max-width: 250px;
+    }
+}

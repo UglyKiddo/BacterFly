@@ -2,9 +2,9 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Tim Laboratorium - BacterFly</title>
+    <title>Tim Produksi - BacterFly</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/lab.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pro.css') }}">
 </head>
 <body>
 <div class="container">
@@ -29,7 +29,7 @@
         </div>
     </main>
 
-  @include('lab.partials.navbar')
+  @include('produksi.partials.navbar')
 </div>
 </body>
 </html>
